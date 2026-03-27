@@ -25,7 +25,7 @@
 
         <div class="grid grid-cols-1 xl:grid-cols-4 gap-6 items-start">
             
-            <div class="col-span-1 bg-white p-6 rounded-xl shadow-sm border border-gray-200 sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto custom-scrollbar">
+            <div class="col-span-1 bg-white p-6 rounded-xl shadow-sm border border-gray-200 xl:sticky xl:top-6 xl:max-h-[calc(100vh-3rem)] overflow-y-auto custom-scrollbar">
                 
                 <h3 class="text-xl font-semibold mb-4 text-[#212529]">Parametri Base</h3>
                 <div class="space-y-4">
@@ -174,7 +174,7 @@
             if (prod === 'Valore Futuro') document.getElementById(`config_Valore_${id}`).classList.remove('hidden');
         }
 
-        // Funzione per generare lo scheletro HTML della dashboard
+        // Funzione per generare lo scheletro HTML della dashboard responsive
         function getHTMLDashboard(idx, nomeProdotto) {
             const isFirst = idx === 0;
             const borderStyle = isFirst ? '' : `border-t-4 border-dashed border-gray-300 pt-8 mt-4`;
@@ -183,17 +183,17 @@
             <div id="dashboard_wrap_${idx}" class="flex flex-col gap-4 ${borderStyle}">
                 <h2 class="text-2xl font-bold px-2 text-[#C8102E]">Analisi Prodotto ${idx+1}: ${nomeProdotto}</h2>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch h-full">
-                    <div class="col-span-1 flex flex-col gap-6 h-full">
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center flex flex-col justify-center shrink-0">
-                            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Ritorno Atteso Netto</h4>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start h-auto">
+                    <div class="col-span-1 flex flex-col gap-6 h-auto">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center flex flex-col justify-center">
+                            <h4 class="text-sm font-bold text-[#C8102E] uppercase tracking-wider mb-2">Ritorno Atteso Netto</h4>
                             <div id="w1_valore_${idx}" class="text-4xl font-bold text-gray-400">--</div>
                             <div id="w1_perc_${idx}" class="text-gray-700 text-md font-semibold mt-2">--</div>
                             <div id="w1_cagr_${idx}" class="text-gray-500 text-sm mt-1">CAGR: --</div>
                         </div>
 
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col flex-grow justify-center">
-                            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-6 text-center">Breakdown Valori</h4>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col justify-center">
+                            <h4 class="text-sm font-bold text-[#C8102E] uppercase tracking-wider mb-6 text-center">Breakdown Valori</h4>
                             <div class="space-y-4 text-sm w-full">
                                 <div class="flex justify-between border-b border-gray-100 pb-2"><span class="text-gray-500">Lordo Atteso</span><span id="w2_lordo_${idx}" class="font-bold text-gray-800">--</span></div>
                                 <div class="flex justify-between border-b border-gray-100 pb-2"><span class="text-gray-500">Costi</span><span id="w2_costi_${idx}" class="font-bold text-[#EE5D50]">--</span></div>
@@ -203,15 +203,15 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center shrink-0">
-                            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Potere D'Acquisto Reale</h4>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
+                            <h4 class="text-sm font-bold text-[#C8102E] uppercase tracking-wider mb-2">Potere D'Acquisto Reale</h4>
                             <div id="w3_reale_${idx}" class="text-3xl font-bold">--</div>
                             <div id="w3_cagr_reale_${idx}" class="text-xs text-gray-400 mt-2">--</div>
                         </div>
                     </div>
 
-                    <div class="col-span-1 lg:col-span-2 flex flex-col gap-6 h-full w-full overflow-hidden">
-                        <div class="bg-white py-3 px-6 rounded-xl shadow-sm border border-gray-200 flex flex-wrap justify-center gap-x-8 gap-y-2 shrink-0">
+                    <div class="col-span-1 lg:col-span-2 flex flex-col gap-6 h-auto w-full overflow-hidden">
+                        <div class="bg-white py-3 px-6 rounded-xl shadow-sm border border-gray-200 flex flex-wrap justify-center gap-x-6 gap-y-2">
                             <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-[#2D68FE] mr-2"></span><span class="text-xs font-bold text-gray-600 uppercase">Capitale</span></div>
                             <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-[#05CD99] mr-2"></span><span class="text-xs font-bold text-gray-600 uppercase">Rendimento</span></div>
                             <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-[#FF9F43] mr-2"></span><span class="text-xs font-bold text-gray-600 uppercase">Inflazione</span></div>
@@ -219,21 +219,21 @@
                             <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-[#7B61FF] mr-2"></span><span class="text-xs font-bold text-gray-600 uppercase">Tasse</span></div>
                         </div>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 shrink-0 h-[250px]">
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 h-full flex flex-col w-full overflow-hidden">
-                                <h3 class="text-sm font-bold uppercase mb-1 text-center shrink-0 text-[#C8102E]">Scomposizione Annua</h3>
-                                <div id="graficoScomposizione_${idx}" class="w-full flex-grow"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex flex-col w-full overflow-hidden min-h-[250px]">
+                                <h3 class="text-sm font-bold uppercase mb-2 text-center text-[#C8102E]">Scomposizione Annua</h3>
+                                <div id="graficoScomposizione_${idx}" class="w-full flex-grow min-h-[200px]"></div>
                             </div>
                             
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 h-full flex flex-col w-full overflow-hidden">
-                                <h3 class="text-sm font-bold uppercase mb-1 text-center shrink-0 text-[#C8102E]">Confronto Capitali</h3>
-                                <div id="graficoConfronto_${idx}" class="w-full flex-grow"></div>
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex flex-col w-full overflow-hidden min-h-[250px]">
+                                <h3 class="text-sm font-bold uppercase mb-2 text-center text-[#C8102E]">Confronto Capitali</h3>
+                                <div id="graficoConfronto_${idx}" class="w-full flex-grow min-h-[200px]"></div>
                             </div>
                         </div>
 
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col flex-grow">
-                            <h3 id="titoloTabellaTassi_${idx}" class="text-sm font-bold uppercase mb-4 text-center shrink-0 text-[#C8102E]">Riepilogo Tassi Applicati</h3>
-                            <div id="contenitoreTabellaTassi_${idx}" class="overflow-x-auto flex-grow flex flex-col justify-center custom-scrollbar"></div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col">
+                            <h3 id="titoloTabellaTassi_${idx}" class="text-sm font-bold uppercase mb-4 text-center text-[#C8102E]">Riepilogo Tassi Applicati</h3>
+                            <div id="contenitoreTabellaTassi_${idx}" class="overflow-x-auto flex flex-col justify-center custom-scrollbar"></div>
                         </div>
                     </div>
                 </div>
@@ -332,10 +332,11 @@
             document.getElementById(`w3_reale_${idx}`).className = `text-3xl font-bold ${r >= 0 ? 'text-[#05CD99]' : 'text-[#EE5D50]'}`;
             document.getElementById(`w3_cagr_reale_${idx}`).innerText = `Rendimento Reale Annuo: ${k.cagr_reale.toFixed(2)}%`;
 
-            // 2. Grafici Plotly
+            // 2. Grafici Plotly (Responsive)
             const layoutBase = {
                 barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
-                margin: { t: 10, l: 35, r: 10, b: 30 }, showlegend: false, xaxis: { type: 'category' }
+                margin: { t: 10, l: 35, r: 10, b: 30 }, showlegend: false, xaxis: { type: 'category' },
+                autosize: true
             };
 
             const traceRend = { x: prodData.grafico.anni, y: prodData.grafico.rend_reale, name: 'Reale', type: 'bar', marker: { color: '#05CD99' } };
@@ -366,11 +367,11 @@
                 titTabella.innerText = "RIEPILOGO TASSI FISSI APPLICATI";
                 const tf = tassiData.dettaglio[0];
                 contTabella.innerHTML = `
-                    <div class="flex justify-around items-center h-full w-full">
-                        <div class="text-center"><div class="text-sm font-bold text-gray-500 uppercase mb-2">Gesav</div><div class="font-bold text-3xl text-gray-800">${formTasso(tf.gs)}</div></div>
-                        <div class="text-center"><div class="text-sm font-bold text-gray-500 uppercase mb-2">Fondi</div><div class="font-bold text-3xl text-gray-800">${formTasso(tf.fi)}</div></div>
-                        <div class="text-center"><div class="text-sm font-bold text-gray-500 uppercase mb-2">OICR</div><div class="font-bold text-3xl text-gray-800">${formTasso(tf.oicr)}</div></div>
-                        <div class="text-center border-l border-gray-200 pl-8"><div class="text-sm font-bold text-gray-500 uppercase mb-2">Inflazione</div><div class="font-bold text-3xl text-[#FF9F43]">${formTasso(tf.inf)}</div></div>
+                    <div class="flex flex-wrap justify-around items-center h-full w-full gap-4">
+                        <div class="text-center"><div class="text-sm font-bold text-gray-500 uppercase mb-2">Gesav</div><div class="font-bold text-2xl lg:text-3xl text-gray-800">${formTasso(tf.gs)}</div></div>
+                        <div class="text-center"><div class="text-sm font-bold text-gray-500 uppercase mb-2">Fondi</div><div class="font-bold text-2xl lg:text-3xl text-gray-800">${formTasso(tf.fi)}</div></div>
+                        <div class="text-center"><div class="text-sm font-bold text-gray-500 uppercase mb-2">OICR</div><div class="font-bold text-2xl lg:text-3xl text-gray-800">${formTasso(tf.oicr)}</div></div>
+                        <div class="text-center lg:border-l border-gray-200 lg:pl-8"><div class="text-sm font-bold text-gray-500 uppercase mb-2">Inflazione</div><div class="font-bold text-2xl lg:text-3xl text-[#FF9F43]">${formTasso(tf.inf)}</div></div>
                     </div>
                 `;
             } else {
